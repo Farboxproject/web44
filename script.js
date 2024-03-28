@@ -1,0 +1,74 @@
+document.addEventListener('DOMContentLoaded', () => {
+  
+  //------ Slider Begin
+	const CaroS = document.querySelector('.Carousel-slider');
+	const CaroSlider = new MicroSlider(CaroS, { indicators: true, indicatorText: '' });
+	const hammer = new Hammer(CaroS);
+	const CaroSTimer = 2000;
+	let CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+    
+  //------- Mouseenter Event
+	CaroS.onmouseenter = function(e) {
+		clearInterval(CaroAutoplay); 
+		console.log(e.type + ' mouse detected');
+	}
+  
+  //----- Mouseleave Event
+	CaroS.onmouseleave = function(e) {
+		clearInterval(CaroAutoplay); 
+		CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+		console.log(e.type + ' mouse detected');
+	}
+  
+  //----- Mouseclick Event
+	CaroS.onclick = function(e) {
+		clearInterval(CaroAutoplay); 
+		console.log(e.type + ' mouse detected');
+	}
+  
+  //------ Gesture Tap Event
+	hammer.on('tap', function(e) {
+		clearInterval(CaroAutoplay);
+		console.log(e.type + ' gesture detected');
+	});
+  
+  //----- Gesture Swipe Event
+	hammer.on('swipe', function(e) {
+		clearInterval(CaroAutoplay); 
+		CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+		console.log(e.type + ' gesture detected');
+	});
+
+  let slideLink = document.querySelectorAll('.slider-item');
+  if (slideLink && slideLink !== null && slideLink.length > 0){
+    slideLink.forEach( el => el.addEventListener('click', e => {
+      e.preventDefault();
+      let href = el.dataset.href;
+      let target = el.dataset.target;
+      if (href !== '#') window.open(href, target);
+    }));
+  }
+  
+  //---- Slider End
+  
+});
+
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', function () {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+});

@@ -1,0 +1,495 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333333;
+}
+
+.container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #3D7CFF;
+    color: #ffffff;
+    padding: 20px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px; /* Adds space between links */
+    padding: 0; /* Removes default padding */
+    margin: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative; /* Membuat posisi relatif agar pseudo-element ditempatkan di dalamnya */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Mengatur posisi pseudo-element ke bawah */
+    left: 50%;
+    width: 0;
+    height: 2px; /* Mengatur ketebalan box */
+    background-color: black; /* Warna box */
+    transition: width 0.3s ease, left 0.3s ease; /* Efek transisi saat muncul */
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0; /* Munculkan box dari kiri */
+}
+
+
+#welcome h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #3D7CFF;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-icon {
+    margin-right: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    text-decoration: underline;
+}
+
+/* Box Styles */
+.animated-box {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #3D7CFF;
+    color: #ffffff;
+    animation: fadeIn 1s ease-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add spacing between each box */
+    transition: transform 0.3s ease; /* Add transition for smooth animation */
+}
+
+/* Animation on Hover */
+.animated-box:hover {
+    transform: scale(1.05); /* Scale up the box when hovered */
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInWelcome {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styles for the welcome section */
+#welcome {
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #3D7CFF;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 80px;
+    text-align: center;
+    animation: fadeInWelcome 1s ease-out;
+}
+
+.welcome-box {
+    max-width: 800px;
+}
+
+#welcome h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#welcome p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+.Carousel-slider {
+    height: 560px;
+    position: relative;
+    width: 100%;
+}
+
+.Carousel-slider.fullwidth {
+    height: 500px;
+}
+
+.Carousel-slider.fullwidth .slider-item {
+    height: 480px;
+    line-height: 480px;
+    width: 100%
+}
+
+.slider-wrapper {
+    overflow: hidden;
+    position: relative;
+    transform-style: preserve-3d;
+    transform-origin: 0 50%;
+    perspective: 800px !important;
+}
+
+.slider-item {
+    box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.12);
+    display: none;
+    height: 320px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 320px;
+    cursor: pointer;
+    border: 5px solid #3D7CFF;
+    background-size: contain; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.indicators {
+    left: 50%; 
+    margin: 0;
+    position: absolute; 
+    transform: translateX(-50%);
+    bottom: 10px; 
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+.indicators li {
+    display: inline-block; 
+    margin: 0 5px; 
+}
+
+.indicators a {
+    background: #3D7CFF;
+    border-radius: 50%; 
+    display: block; 
+    height: 16px;
+    width: 16px;
+}
+
+.indicators .active a {
+    background: #e4e5e6;
+}
+
+
+.superhero1 {background-image: url(1.png); border-radius: 50px !important;}
+.superhero2 {background-image: url(2.png); border-radius: 50px !important;}
+.superhero3 {background-image: url(3.png); border-radius: 50px !important;}
+.superhero4 {background-image: url(4.png); border-radius: 50px !important;}
+.superhero5 {background-image: url(5.png); border-radius: 50px !important;}
+.superhero6 {background-image: url(6.png); border-radius: 50px !important;}
+.superhero7 {background-image: url(7.png); border-radius: 50px !important;}
+.superhero8 {background-image: url(8.png); border-radius: 50px !important;}
+.superhero9 {background-image: url(9.png); border-radius: 50px !important;}
+.superhero10 {background-image: url(10.png); border-radius: 50px !important;}
+
+#roadmap {
+    margin-top: 20px; /* Menambahkan jarak antara judul "Roadmap" dan fase-fase */
+}
+
+.token-distribution {
+    margin-top: 20px; /* Menambahkan jarak antara judul "Roadmap" dan fase-fase */
+}
+
+.phase {
+    margin-top: 20px; /* Menambahkan jarak antara setiap fase */
+}
+
+.container sheets {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.cell {
+    flex: 1;
+    padding: 10px;
+    position: relative; /* Tambahkan properti position */
+}
+
+.cell::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.cell::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.cell:not(:last-child) {
+    border-right: 1px solid #ccc;
+}
+
+.row:last-child .cell {
+    border-bottom: none;
+}
+
+.cell:last-child::after {
+    display: none; /* Sembunyikan garis di sebelah kanan untuk sel terakhir */
+}
+
+/* Gaya tombol */
+.button {
+    background-color: #3498db; /* Warna biru */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Animasi smooth */
+}
+
+/* Efek hover */
+.button:hover {
+    background-color: #2980b9; /* Warna biru yang lebih gelap saat dihover */
+}
+
+/* Style for the container of the images */
+.image-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust the space between images */
+}
+
+.image-link {
+    width: 200px; /* Adjust based on your preference */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    display: block;
+}
+
+.image-link img {
+    width: 100%;
+    height: auto;
+    display: block; /* Remove any default margins or paddings */
+    border-radius: 10px; /* Optional: adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
+}
+
+/* Hover effect */
+.image-link:hover {
+    transform: scale(1.1); /* Slightly enlarge the images on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover for a "lifting" effect */
+}
+
+/* Tampilan mobile */
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 100%; /* Mengisi seluruh lebar layar */
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+        margin: 0; /* Hapus margin default */
+    }
+
+    .menu-toggle-checkbox {
+        display: none; /* Sembunyikan checkbox */
+    }
+
+    .menu-toggle-label {
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .menu-icon {
+        width: 25px;
+        height: 3px;
+        background-color: #ffffff;
+        position: relative;
+        transition: background-color 0.3s ease;
+    }
+
+    .menu-icon:before,
+    .menu-icon:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        transition: transform 0.3s ease;
+    }
+
+    .menu-icon:before {
+        top: -8px;
+    }
+
+    .menu-icon:after {
+        bottom: -8px;
+    }
+
+    .menu-toggle-checkbox:checked + .menu-toggle-label .menu-icon:before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .menu-toggle-checkbox:checked + .menu-toggle-label .menu-icon:after {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+
+    .menu-toggle-checkbox:checked + .menu-toggle-label .menu-icon {
+        background-color: transparent;
+    }
+
+    .menu-toggle-checkbox:checked + .menu-toggle-label .menu-icon:before,
+    .menu-toggle-checkbox:checked + .menu-toggle-label .menu-icon:after {
+        background-color: transparent;
+    }
+
+    .nav-menu {
+        display: none; /* Sembunyikan menu saat tampilan mobile */
+        background-color: #3D7CFF; /* Warna latar belakang menu */
+        padding: 20px; /* Beri jarak antara menu dan layar */
+        position: absolute;
+        top: calc(100% + 10px); /* Tampilkan menu di bawah icon dengan jarak 10px */
+        left: 0;
+        right: 0;
+        z-index: 999; /* Atur z-index yang lebih tinggi */
+    }
+
+    .menu-toggle-checkbox:checked + .menu-toggle-label + .nav-menu {
+        display: block; /* Tampilkan menu saat tombol diaktifkan */
+    }
+
+    .nav-menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-menu ul li {
+        margin-bottom: 10px; /* Beri jarak antara setiap item menu */
+    }
+
+    .nav-menu ul li a {
+        color: #ffffff; /* Warna teks menu */
+        text-decoration: none; /* Hapus garis bawah pada teks menu */
+        display: block; /* Tampilkan setiap item menu sebagai blok */
+    }
+}
